@@ -29,14 +29,8 @@ MeliObject.prototype.post = function meli_post(url, body, params = null) {
       }
     });
   });
-};
-
-// Função que usa o objeto MeliObject para fazer a requisição GET
-async function meli_get(meliObject, url, params = null) {
-  return await meliObject.get(url, params);
 }
 
 module.exports = {
-  MeliObject,
-  meli_get // agora está exportando a função esperada
+  MeliObject
 };
