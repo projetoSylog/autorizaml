@@ -4,7 +4,6 @@ const path = require('path');
 const helmet = require('helmet');
 const session = require('cookie-session');
 require('dotenv').config();
-
 const meli = require('mercadolibre');
 const { validateToken } = require('./middlewares/tokens');
 const { meli_get } = require('./utils');
@@ -30,7 +29,7 @@ app.get('/', (req, res) => {
 });
 
 app.post('/login', (req, res) => {
-  if (req.body.password === SYS_PWD) {
+  if (req.body.password === 'pwd') {
     req.session.user = true;
     res.redirect('/home');
   } else {
@@ -54,5 +53,6 @@ app.get('/home', validateToken, async (req, res) => {
     res.status(500).send(`Error! ${err}`);
   }
 });
+
 
 module.exports = app;
